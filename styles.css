@@ -1,0 +1,33 @@
+h1 {
+	text-align: center;
+}
+
+.btn-group {
+	margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.box {
+  background-color: #808080;
+  border: 3px solid #000000;
+  border-radius: 100em;
+  width: 180px;
+  height: 45px;
+
+}
+
+h2 {
+	text-align: center;
+	color: Chartreuse;
+}
+
+span {
+	font-size: 30px;
+	text-align: center;
+	vertical-align: center;
+	margin-bottom: 20px;
+	color: Chartreuse;	
+}

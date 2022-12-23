@@ -1,0 +1,14 @@
+{
+  "name": "snakegame",
+  "version": "1.0.0",
+  "description": "Snake Game in JS",
+  "main": "snake.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Modernel",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
+}
