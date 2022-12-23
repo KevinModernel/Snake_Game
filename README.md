@@ -20,7 +20,28 @@ Las coordenadas en las que se dibujará la manzana se generan aleatoriamente, pe
 
 ## Área de Juego:
 
-Esta será simplemente un rectángulo, para el cual utilizamos un HTML Element ```<canvas> ... </canvas>``` que controlaremos mediante el script de JavaScript. Cabe mencionar que las posibles coordenadas de la serpiente y manzana se ven limitadas por el tamaño del canvas. En el caso de la manzana al momento de su generación aleatoria tiene en cuenta las dimensiones del canvas (```document.getElementById("canvas").width``` y ```document.getElementById("canvas").height```)
+Esta será simplemente un rectángulo, para el cual utilizamos un HTML Element ```<canvas> ... </canvas>``` que controlaremos mediante el script de JavaScript. Cabe mencionar que las posibles coordenadas de la serpiente y manzana se ven limitadas por el tamaño del canvas. En el caso de la manzana al momento de su generación aleatoria tiene en cuenta las dimensiones del canvas (```document.getElementById("canvas").width``` y ```document.getElementById("canvas").height```), y la serpiente verifica si en su movimiento se "chocó" contra las paredes del canvas.
+
+## Lógica del Juego:
+
+1- Con la función ```gameLoop()``` iniciamos el loop del juego, mediante el método ```setInterval(show, delay)```, disparando la función ```show()``` cada ```delay``` milisegundos.
+
+2- La función ```show()``` primero llama a la función ```update()``` para actualizar el estado de la serpiente y de la manzana, mueve una posición la serpiente, corrobora que no se haya chocado ninguna pared ni contra ella misma, y corrobora si se comio la manzana.
+
+Ahora tenemos 3 situaciones posibles: a- No chocó ni se comió la manzana. b- Chocó contra la pared o contra ella misma. c- Se comió la manzana.
+
+#### Caso A: No chocó ni se comió la manzana.
+
+3-A- Luego de pasar exitosamente por ```update()```, la función ```show()``` llama a ```draw()```, donde si redibuja el canvas, se redibuja la serpiente en su nueva posición, y se redibuja la manzana (en la misma posición que antes ya que no se la comió).
+
+4-A- Se termina el loop, y despues de ```delay``` milisegundos se vuelve a ejecutar la función ```show()```, repitiendose los pasos anteriores.
+
+#### Caso B: Chocó contra la pared o contra ella misma
+
+
+
+
+
 
 
 
