@@ -24,9 +24,9 @@ Esta será simplemente un rectángulo, para el cual utilizamos un HTML Element `
 
 ## Lógica del Juego:
 
-1- Con la función ```gameLoop()``` iniciamos el loop del juego, mediante el método ```setInterval(show, delay)```, disparando la función ```show()``` cada ```delay``` milisegundos.
+1- Con la función ```gameLoop()``` iniciamos el loop del juego mediante el método ```setInterval(show, delay)```, disparando la función ```show()``` cada ```delay``` milisegundos.
 
-2- La función ```show()``` primero llama a la función ```update()``` para actualizar el estado de la serpiente y de la manzana, mueve una posición la serpiente, corrobora que no se haya chocado ninguna pared ni contra ella misma, y corrobora si se comio la manzana.
+2- La función ```show()``` primero llama a la función ```update()``` para actualizar el estado de la serpiente y de la manzana. Mueve una posición la serpiente, corrobora que no se haya chocado ninguna pared ni contra ella misma, y corrobora si se comio la manzana.
 
 Ahora tenemos 3 situaciones posibles: a- No chocó ni se comió la manzana. b- Chocó contra la pared o contra ella misma. c- Se comió la manzana.
 
@@ -36,12 +36,17 @@ Ahora tenemos 3 situaciones posibles: a- No chocó ni se comió la manzana. b- C
 
 4-A- Se termina el loop, y despues de ```delay``` milisegundos se vuelve a ejecutar la función ```show()```, repitiendose los pasos anteriores.
 
-#### Caso B: Chocó contra la pared o contra ella misma
+#### Caso B: Chocó contra la pared o contra ella misma.
 
+3-B- Dentro de ```update()```, la función ```checkHit()``` corrobró que hubo un choqué. Esta función tiene 2 funciones, ```checkHitWall()``` y ```checkHitItself()```, si se da un impacto (coincide coordenadas de la cabeza de la serpiente con alguna coordenada de su cuerpo, o con coordenadas de los bordes del canvas) se dispara la función ```gameOver()```.
 
+4-B- ```gameOver()``` Corta el loop del juego con el método ```clearInterval()```.
 
+#### Caso C: Se comió la manzana.
 
+3-C- Dentro de ```update()```, la función ```eatApple()``` corrobora si se comio la manzana (coincidencia entre coordenadas de la cabeza y la manzana). Al coincidir las coordenadas, se crea una nueva instance de la clase ```Apple()```, termina de ejecutarse exitosamente la función ```update()```, y vuelve a pasar con el caso A, que se redibuja el canvas, serpiente y manzana, solamente que ahora la manzana tendrá nuevas coordenadas.
 
+4-C- Se termina el loop, y despues de ```delay``` milisegundos se vuelve a ejecutar la función ```show()```, repitiendose los pasos anteriores.
 
 
 
