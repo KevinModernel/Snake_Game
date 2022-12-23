@@ -30,24 +30,34 @@ Esta será simplemente un rectángulo, para el cual utilizamos un HTML Element `
 
 Ahora tenemos 3 situaciones posibles: a- No chocó ni se comió la manzana. b- Chocó contra la pared o contra ella misma. c- Se comió la manzana.
 
-#### Caso A: No chocó ni se comió la manzana.
+### Caso A: No chocó ni se comió la manzana.
 
 3-A- Luego de pasar exitosamente por ```update()```, la función ```show()``` llama a ```draw()```, donde si redibuja el canvas, se redibuja la serpiente en su nueva posición, y se redibuja la manzana (en la misma posición que antes ya que no se la comió).
 
 4-A- Se termina el loop, y despues de ```delay``` milisegundos se vuelve a ejecutar la función ```show()```, repitiendose los pasos anteriores.
 
-#### Caso B: Chocó contra la pared o contra ella misma.
+### Caso B: Chocó contra la pared o contra ella misma.
 
 3-B- Dentro de ```update()```, la función ```checkHit()``` corrobró que hubo un choqué. Esta función tiene 2 funciones, ```checkHitWall()``` y ```checkHitItself()```, si se da un impacto (coincide coordenadas de la cabeza de la serpiente con alguna coordenada de su cuerpo, o con coordenadas de los bordes del canvas) se dispara la función ```gameOver()```.
 
 4-B- ```gameOver()``` Corta el loop del juego con el método ```clearInterval()```.
 
-#### Caso C: Se comió la manzana.
+### Caso C: Se comió la manzana.
 
 3-C- Dentro de ```update()```, la función ```eatApple()``` corrobora si se comio la manzana (coincidencia entre coordenadas de la cabeza y la manzana). Al coincidir las coordenadas, se crea una nueva instance de la clase ```Apple()```, termina de ejecutarse exitosamente la función ```update()```, y vuelve a pasar con el caso A, que se redibuja el canvas, serpiente y manzana, solamente que ahora la manzana tendrá nuevas coordenadas.
 
 4-C- Se termina el loop, y despues de ```delay``` milisegundos se vuelve a ejecutar la función ```show()```, repitiendose los pasos anteriores.
 
+## Modificaciones respecto al proyecto base:
 
+Luego de tener la base del juego lista, aprendiendo bastante sobre la lógica a utilizar en el desarrollo, sintaxis, métodos, propiedades, clases, entre otras cosas, realicé algunos cambios y agregué features.
 
-```
+1- Función para corroborar impacto contra las paredes. En el código original la serpiente podia salir y volver a entrar al área de juego.
+
+2- Función de Game Over.
+
+3- Reorganizar llamado a funciones, para mejorar legibilidad.
+
+4- Quitar puntaje del canvas, y situarlo en un elemento HTML diferente.
+
+5- Botones de Start, Restart, selección de niveles de dificultad, y su lógica en JavaScript.
